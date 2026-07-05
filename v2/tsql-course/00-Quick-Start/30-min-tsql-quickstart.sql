@@ -44,6 +44,30 @@ FROM   Production.Product
 WHERE  Color = 'Red'
 AND    ListPrice > 500;
 
+-- Combine conditions with OR
+SELECT ProductID,
+       Name,
+       ListPrice,
+       Color
+FROM   Production.Product
+WHERE  Color = 'Red'
+OR     Color = 'Blue';
+
+-- Using IN to match multiple values
+SELECT ProductID,
+       Name,
+       ListPrice,
+       Color
+FROM   Production.Product
+WHERE  Color IN ('Red','Blue');
+
+-- Date Example
+SELECT SalesOrderID,
+       OrderDate,
+       TotalDue
+FROM   Sales.SalesOrderHeader
+WHERE  OrderDate >= '2025-01-01';
+
 -- Pattern matching with LIKE and wildcard %
 SELECT ProductID,
        Name,
@@ -52,7 +76,20 @@ SELECT ProductID,
 FROM   Production.Product
 WHERE  Name LIKE 'Mountain%';
 
+SELECT ProductID,
+       Name,
+       ListPrice,
+       Color
+FROM   Production.Product
+WHERE  Name LIKE '%Bike%';
 
+-- Dealing with NULL
+SELECT ProductID,
+       Name,
+       ListPrice,
+       Color
+FROM   Production.Product
+WHERE  COLOR IS NULL;
 -- ------------------------------------------------------------
 -- 3. Sorting and Limiting — ORDER BY and TOP
 -- ------------------------------------------------------------
@@ -79,8 +116,7 @@ ORDER BY ListPrice DESC;
 -- ------------------------------------------------------------
 
 -- Simple calculation with an alias (AS)
-SELECT TOP 5
-       ProductID,
+SELECT ProductID,
        Name,
        ListPrice,
        ListPrice * 0.9 AS DiscountedPrice
@@ -88,8 +124,7 @@ FROM   Production.Product
 ORDER BY ListPrice DESC;
 
 -- CONCAT to build a readable label from multiple columns
-SELECT TOP 5
-       ProductID,
+SELECT ProductID,
        CONCAT(Name, ' - ', Color) AS ProductLabel,
        ListPrice
 FROM   Production.Product
@@ -118,27 +153,41 @@ SELECT YEAR(OrderDate) AS OrderYear,
        COUNT(*)        AS OrderCount
 FROM   Sales.SalesOrderHeader
 GROUP BY YEAR(OrderDate)
-HAVING SUM(TotalDue) > 1000000
+HAVING SUM(TotalDue) > 3000000
 ORDER BY OrderYear;
 
+-- Using WHERE along with HAVING
+SELECT YEAR(OrderDate) AS OrderYear,
+       SUM(TotalDue)   AS TotalRevenue,
+       COUNT(*)        AS OrderCount
+FROM   Sales.SalesOrderHeader
+WHERE  OnlineOrderFlag = 1
+GROUP BY YEAR(OrderDate)
+HAVING SUM(TotalDue) > 500000
+ORDER BY OrderYear;
 
 -- ------------------------------------------------------------
 -- 6. Bringing Tables Together — JOIN
 -- ------------------------------------------------------------
 
 -- INNER JOIN: only rows with a match on both sides
-SELECT t.Name            AS Territory,
-       SUM(soh.TotalDue) AS TotalRevenue,
-       COUNT(*)          AS OrderCount
+SELECT SalesOrderID,
+       soh.TerritoryID,
+       t.Name               AS TerritoryName,
+       TotalDue
 FROM   Sales.SalesOrderHeader AS soh
-JOIN   Sales.SalesTerritory   AS t ON soh.TerritoryID = t.TerritoryID
+JOIN   Sales.SalesTerritory   AS t 
+       ON soh.TerritoryID = t.TerritoryID
+WHERE  soh.TerritoryID = 5;
+
+-- INNER JOIN with GROUP BY
+
+SELECT t.Name               AS TerritoryName,
+       SUM(TotalDue)        AS TotalRevenue,
+       COUNT(*)             AS OrderCount
+FROM   Sales.SalesOrderHeader AS soh
+JOIN   Sales.SalesTerritory   AS t 
+       ON soh.TerritoryID = t.TerritoryID
 GROUP BY t.Name
 ORDER BY TotalRevenue DESC;
 
--- LEFT JOIN: keeps every row from the left table, even with no match
--- Here: find customers who have NEVER placed an order
-SELECT c.CustomerID,
-       soh.SalesOrderID
-FROM      Sales.Customer         AS c
-LEFT JOIN Sales.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
-WHERE  soh.SalesOrderID IS NULL;
