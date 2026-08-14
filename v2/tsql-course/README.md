@@ -11,10 +11,10 @@ New to the series? Start with the quick start below, then work through the numbe
 
 | # | Topic | Video | Code |
 |---|-------|-------|------|
-| 00 | Learn SQL in 30 Minutes (Quick Start) | https://youtu.be/JmoFJWlFT44 | [Code](./00-Quick-Start) |
-| 01 | What Is T-SQL and Why Should Business Professionals Care? | https://youtu.be/q951uCo-6EE | [Code](./01-Intro) |
-| 02 | Setting Up Your Environment and Running Your First Query | https://youtu.be/c0JJ4yAPGRE | [Code](./02-Environment-Setup) |
-| 03 | How Data Is Organised — Databases, Schemas, Tables, and Constraints | https://youtu.be/2ruFZjxLrQ0 | [Code](./03-Data-Organisation) |
+| 00 | Learn SQL in 30 Minutes (Quick Start) | [Link](https://youtu.be/JmoFJWlFT44) | [Code](./00-Quick-Start) |
+| 01 | What Is T-SQL and Why Should Business Professionals Care? | [Link](https://youtu.be/q951uCo-6EE) | [Code](./01-Intro) |
+| 02 | Setting Up Your Environment and Running Your First Query | [Link](https://youtu.be/c0JJ4yAPGRE) | [Code](./02-Environment-Setup) |
+| 03 | How Data Is Organised — Databases, Schemas, Tables, and Constraints | [Link](https://youtu.be/2ruFZjxLrQ0) | [Code](./03-Data-Organisation) |
 
 *Table will be filled in as each video is published.*
 
