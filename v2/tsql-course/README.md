@@ -16,6 +16,8 @@ New to the series? Start with the quick start below, then work through the numbe
 | 02 | Setting Up Your Environment and Running Your First Query | [Link](https://youtu.be/c0JJ4yAPGRE) | [Code](./02-Environment-Setup) |
 | 03 | How Data Is Organised — Databases, Schemas, Tables, and Constraints | [Link](https://youtu.be/2ruFZjxLrQ0) | [Code](./03-Data-Organisation) |
 | 04 | The SELECT Statement — Choosing What You Want to See | [Link](https://youtu.be/MVaCsLJNjZY) | [Code](./04-SELECT) |
+| 05 | Filtering Rows with WHERE — Find Exactly What You Need | [Link](https://youtu.be/GTAIlq3kyqU) | [Code](./05-WHERE) |
+| 06 | LIKE, BETWEEN, and IN — Pattern Matching and Range Filtering | [Link](https://youtu.be/PHLVB_di4UI) | [Code](./06-LIKE-BETWEEN-IN) |
 
 *Table will be filled in as each video is published.*
 
