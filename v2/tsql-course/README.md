@@ -18,6 +18,9 @@ New to the series? Start with the quick start below, then work through the numbe
 | 04 | The SELECT Statement — Choosing What You Want to See | [Link](https://youtu.be/MVaCsLJNjZY) | [Code](./04-SELECT) |
 | 05 | Filtering Rows with WHERE — Find Exactly What You Need | [Link](https://youtu.be/GTAIlq3kyqU) | [Code](./05-WHERE) |
 | 06 | LIKE, BETWEEN, and IN — Pattern Matching and Range Filtering | [Link](https://youtu.be/PHLVB_di4UI) | [Code](./06-LIKE-BETWEEN-IN) |
+| 07 | NULL Values — The Trap That Breaks Every Beginner's Query | [Link](https://youtu.be/d8QfYwF5nEA) | [Code](./07-NULL) |
+| 08 | Sorting and Limiting Results — ORDER BY and TOP | [Link](https://youtu.be/zrRhAAZ4fkU) | [Code](./08-ORDER-TOP) |
+| 09 | Calculated Columns — Build New Data from Existing Data | [Link](https://youtu.be/y-dNBabR_do) | [Code](./09-Calculated-Columns) |
 
 *Table will be filled in as each video is published.*
 
